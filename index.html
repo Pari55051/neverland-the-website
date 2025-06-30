@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <title>Neverland | Pirate Island</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <style>body { margin: 0; overflow: hidden; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
 </head>
 <body>
   <a-scene background="color: #88c9f9" >
@@ -13,7 +17,9 @@
       <a-asset-item id="PirateCaptain" src="assets/Pirate Captain.glb"></a-asset-item>
       <a-asset-item id="Anne" src="assets/Anne.glb"></a-asset-item>
       <a-asset-item id="Mako" src="assets/Mako.glb"></a-asset-item>
+      <a-asset-item id="Sharky" src="assets/Sharky.glb"></a-asset-item>
       <a-asset-item id="Skeleton" src="assets/Skeleton.glb"></a-asset-item>
+      <a-asset-item id="Skeleton2" src="assets/Skeleton-2.glb"></a-asset-item>
       <a-asset-item id="Henry" src="assets/Henry.glb"></a-asset-item>
       <!-- Sea Props -->
       <a-asset-item id="Shark" src="assets/Shark.glb"></a-asset-item>
@@ -22,9 +28,17 @@
       <a-asset-item id="SmallShip" src="assets/Small Ship.glb"></a-asset-item>
       <!-- Island Props -->
       <a-asset-item id="Dock" src="assets/Dock.glb"></a-asset-item>
+      <a-asset-item id="DockBroken" src="assets/Dock Broken.glb"></a-asset-item>
       <a-asset-item id="House" src="assets/House-2.glb"></a-asset-item>
+      <a-asset-item id="Shop" src="assets/House-3.glb"></a-asset-item>
       <a-asset-item id="Barrel" src="assets/Barrel.glb"></a-asset-item>
       <a-asset-item id="Chest" src="assets/Chest Closed.glb"></a-asset-item>
+      <a-asset-item id="ChestGold" src="assets/Chest Gold.glb"></a-asset-item>
+      <a-asset-item id="GoldBag" src="assets/Gold Bag.glb"></a-asset-item>
+      <a-asset-item id="Coins" src="assets/Coins.glb"></a-asset-item>
+      <a-asset-item id="GemBlue" src="assets/Gem Blue.glb"></a-asset-item>
+      <a-asset-item id="GemPink" src="assets/Gem Pink.glb"></a-asset-item>
+      <a-asset-item id="GemGreen" src="assets/Gem Green.glb"></a-asset-item>
       <a-asset-item id="Palm" src="assets/Palm Tree.glb"></a-asset-item>
       <a-asset-item id="Palm2" src="assets/Palm Tree-2.glb"></a-asset-item>
       <a-asset-item id="Palm3" src="assets/Palm Tree-3.glb"></a-asset-item>
@@ -33,49 +47,86 @@
       <a-asset-item id="RedX" src="assets/Red X.glb"></a-asset-item>
       <a-asset-item id="Anchor" src="assets/Anchor.glb"></a-asset-item>
       <a-asset-item id="Cannon" src="assets/Cannon.glb"></a-asset-item>
+      <a-asset-item id="Bomb" src="assets/Bomb.glb"></a-asset-item>
       <a-asset-item id="LargeBone" src="assets/Large Bone.glb"></a-asset-item>
       <a-asset-item id="Skull" src="assets/Skull.glb"></a-asset-item>
+      <a-asset-item id="Sawmill" src="assets/Sawmill.glb"></a-asset-item>
     </a-assets>
 
     <!-- Ocean -->
     <a-plane position="0 -0.1 -70" rotation="-90 0 0" width="300" height="300" material="color: #1CA3EC; opacity: 0.9; side: double"></a-plane>
-
+    
     <!-- Island base -->
     <a-plane position="0 0 0" rotation="-90 0 0" width="120" height="120" material="color: #fad682"></a-plane>
-
+    
     <!-- Sea -->
     <a-gltf-model src="#Ship" position="0 -0.1 -90" scale="4 4 4" rotation="0 180 0"></a-gltf-model>
-    <a-gltf-model src="#Tentacle" position="177 0 -10" scale="3 3 3" rotation="0 30 0"></a-gltf-model>
-    <a-gltf-model src="#Tentacle" position="180 0 65" scale="2 2 2" rotation="0 -45 0"></a-gltf-model>
+    <a-gltf-model src="#Tentacle" position="177 -1 -10" scale="3 3 3" rotation="0 30 0"></a-gltf-model>
+    <a-gltf-model src="#Tentacle" position="180 -1 65" scale="2 2 2" rotation="0 -40 0"></a-gltf-model>
+    <a-gltf-model src="#Tentacle" position="179 -1 35" scale="2 2 2" rotation="0 225 0"></a-gltf-model>
     <a-gltf-model src="#Shark" position="-120 0 10 -45" scale="3 3 3" rotation="0 90 0"></a-gltf-model>
     <a-gltf-model src="#Shark" position="240 -12 240" scale="3 3 3" rotation="0 -60 0"></a-gltf-model>
-
+    
     <!-- Island front right -->
-    <a-gltf-model src="#Barrel" position="22 0 -45" scale="7 7 7"></a-gltf-model>
-    <a-gltf-model src="#Barrel" position="20 0 -40" scale="6 6 6"></a-gltf-model>
-    <a-gltf-model src="#Barrel" position="25 0 -42" scale="9 9 9"></a-gltf-model>
-    <a-gltf-model src="#Barrel" position="27 0 -37" scale="5 5 5"></a-gltf-model>
-    <a-gltf-model src="#Barrel" position="25 1 -35" scale="4 4 4" rotation="0 0 90"></a-gltf-model>
-    <a-gltf-model src="#Cannon" position="40 0 -35" scale="5.5 5.5 5.5" rotation="0 -135 0"></a-gltf-model>
-    <a-gltf-model src="#Palm" position="50 0 5" scale="8 8 8"></a-gltf-model>
-
+    <a-gltf-model src="#DockBroken" position="58 -1 -20" scale="4 5 4" rotation="0 180 0 "></a-gltf-model>
+    <a-gltf-model src="#Barrel" position="32 0 -45" scale="7 7 7"></a-gltf-model>
+    <a-gltf-model src="#Barrel" position="30 0 -40" scale="5.5 5.5 5.5"></a-gltf-model>
+    <a-gltf-model src="#Barrel" position="35 0 -42" scale="7.5 7.5 7.5"></a-gltf-model>
+    <a-gltf-model src="#Barrel" position="37 0 -37" scale="5 5 5"></a-gltf-model>
+    <a-gltf-model src="#Barrel" position="35 1 -35" scale="4 4 4" rotation="0 0 90"></a-gltf-model>
+    <a-gltf-model src="#Cannon" position="20 0 -35" scale="5.5 5.5 5.5" rotation="0 -135 0"></a-gltf-model>
+    <a-gltf-model src="#Bomb" position="16.5 0.6 -33.5" scale="4 4 4" rotation="15 135 -20"></a-gltf-model>
+    <a-gltf-model src="#Bomb" position="16.25 0.35 -30.5" scale="3 3 3" rotation="-23 -105 -18"></a-gltf-model>
+    <a-gltf-model src="#Palm2" position="46 0 -27" scale="5 5 5"></a-gltf-model>
+    <a-gltf-model src="#Palm" position="52 0 -7" scale="3 3 3"></a-gltf-model>
+    <a-gltf-model src="#Anne" position="12 0 -35" scale="3.25 3.25 3.25" rotation="0 -195 0"></a-gltf-model>
+    
     <!-- Island front left -->
     <a-gltf-model src="#Dock" position="-58 -1 -30" scale="4 5 4"></a-gltf-model>
     <a-gltf-model src="#Anchor" position="-55 0.5 -40" scale="5 6 5" rotation="35 20 0"></a-gltf-model>
+    <a-gltf-model src="#Sharky" position="-53 0 -22" scale="3 3 3" rotation="0 65 0"></a-gltf-model>
     <a-gltf-model src="#SmallShip" position="-75 -1 -35" scale="3 3 3" rotation="0 90 0"></a-gltf-model>
     <a-gltf-model src="#Palm" position="-44 0 -2" scale="4 4 4"></a-gltf-model>
     <a-gltf-model src="#Palm2" position="-43 0 4" scale="3.5 3.5 3.5"></a-gltf-model>
     <a-gltf-model src="#Palm3" position="-39 0 0" scale="5 5 5"></a-gltf-model>
     <a-gltf-model src="#RedX" position="-41 -0.1 -5" scale="4 4 4"></a-gltf-model>
-
+    <a-gltf-model src="#ChestGold" position="-45 -0.05 -10" scale="2.5 2.5 2.5" rotation="0 105 0"></a-gltf-model>
+    <a-gltf-model src="#GoldBag" position="-44 -0.05 -12" scale="2.5 2.5 2.5" rotation="0 105 0"></a-gltf-model>
+    <a-gltf-model src="#Palm3" position="-28 0 -53" scale="5 5 5"></a-gltf-model>
+    <a-gltf-model src="#Shop" position="-35 0 -38" scale="2.5 2.5 2.5" rotation="0 45 0"></a-gltf-model>
+    <a-gltf-model src="#Skeleton2" position="-22 0 -38" scale="4 4 4" rotation="0 50 0"></a-gltf-model>
+    
     <!-- Island Center -->
-    <a-gltf-model src="#PirateCaptain" position="0 0 5" scale="2 2 2"></a-gltf-model>
-    <a-gltf-model src="#Anne" position="-4 0 7" scale="2 2 2"></a-gltf-model>
-    <a-gltf-model src="#Mako" position="4 0 6" scale="2 2 2"></a-gltf-model>
-    <a-gltf-model src="#Skeleton" position="6 0 4" scale="2 2 2"></a-gltf-model>
-    <a-gltf-model src="#Henry" position="6 0 2" scale="2 2 2"></a-gltf-model>
-    <a-gltf-model src="#Chest" position="2 0 3.5" scale="1.5 1.5 1.5"></a-gltf-model>
-    <a-gltf-model src="#Chest" position="-2 0 4" scale="1.5 1.5 1.5" rotation="0 45 0"></a-gltf-model>
+    <a-gltf-model src="#PirateCaptain" position="-1 0 0" scale="2.8 2.8 2.8"></a-gltf-model>
+    <a-gltf-model src="#Skeleton" position="-8 0 12" scale="3.2 3.2 3.2" rotation="0 180 0"></a-gltf-model>
+    <a-gltf-model src="#Henry" position="8 0 12" scale="3 3 3" rotation="0 180 0"></a-gltf-model>
+    <a-gltf-model src="#Chest" position="15 -0.1 -3.5" scale="2.5 2.5 2.5" rotation="-15 135 12"></a-gltf-model>
+    <a-gltf-model src="#Chest" position="-4 -0.1 -27" scale="2 2 2" rotation="10 45 7"></a-gltf-model>
+    <a-gltf-model src="#Skull" position="-25 0.1 -13" scale="9 9 9" rotation="3 120 25" gltf-model=""></a-gltf-model>
+    <a-gltf-model src="#Rock" position="36 -0.1 -26" scale="3 3 3" rotation="10 45 7"></a-gltf-model>
+    <a-gltf-model src="#Rock" position="-44 -0.1 -25" scale="2 2 2" rotation="10 45 7"></a-gltf-model>
+    <a-gltf-model src="#Rock" position="2 -0.1 -46" scale="2.5 2.5 2.5" rotation="10 45 7"></a-gltf-model>
+    <a-gltf-model src="#Rock" position="-13 -0.1 -15" scale="2 2 2" rotation="10 45 7"></a-gltf-model>
+    <a-gltf-model src="#GemPink" position="-14 0 3" scale="2 2 2" rotation="10 45 7"></a-gltf-model>
+    <a-gltf-model src="#GemGreen" position="10 0 -17" scale="2 2 2" rotation="10 45 7"></a-gltf-model>
+    
+    <!-- Island Back Center - Inside House -->
+    <a-gltf-model src="#House" position="0 0 25" scale="6 6 6" rotation="0 180 0"></a-gltf-model>
+    <a-gltf-model src="#Chest" position="3 0 34" scale="1.5 1.5 1.5"></a-gltf-model>
+    <a-gltf-model src="#Skeleton" position="5 0 34" scale="2 2 2" rotation="0 180 0"></a-gltf-model>
+    <a-gltf-model src="#Anne" position="-6 0 28" scale="2 2 2" rotation="0 90 0"></a-gltf-model>
+    <a-gltf-model src="#Mako" position="6 0 28" scale="2 2 2" rotation="0 -90 0"></a-gltf-model>
+    <a-gltf-model src="#PirateCaptain" position="0 0 28" scale="3.75 3.75 3.75" rotation="0 180 0"></a-gltf-model>
+    
+    <!-- Island Back Left -->
+    <a-gltf-model src="#LargeBone" position="-27 -0.4 10" scale="0.8 0.8 0.8" rotation="-7 8 6"></a-gltf-model>
+    <a-gltf-model src="#Skull" position="-23 0 8" scale="3 3 3" rotation="0 135 35"></a-gltf-model>
+
+    <!-- Island Back Right -->
+    <a-gltf-model src="#Palm" position="50 0 5" scale="5 5 5"></a-gltf-model>
+    <a-gltf-model src="#Sawmill" position="40 0 -3" scale="5 5 5" rotation="0 180 0"></a-gltf-model>
+    <a-gltf-model src="#Mako" position="36 0 -10" scale="3.2 3.2 3.2" rotation="0 -85 0"></a-gltf-model>
+
 
     <!-- Rock Mountain Back -->
     <a-gltf-model src="#Rock" position="-50 0 18" scale="30 30 30"></a-gltf-model>
@@ -92,17 +143,7 @@
     <a-gltf-model src="#Rock" position="50 0 18" scale="30 30 30"></a-gltf-model>
     <a-gltf-model src="#Rock" position="35 0 18" scale="20 20 20"></a-gltf-model>
 
-    <!-- Island Back Center -->
-    <a-gltf-model src="#House" position="0 0 25" scale="6 6 6" rotation="0 180 0"></a-gltf-model>
-    <a-gltf-model src="#Chest" position="3 0 34" scale="1.5 1.5 1.5"></a-gltf-model>
-    <a-gltf-model src="#Skeleton" position="5 0 34" scale="2 2 2" rotation="0 180 0"></a-gltf-model>
-    <a-gltf-model src="#Anne" position="-6 0 28" scale="2 2 2" rotation="0 90 0"></a-gltf-model>
-    <a-gltf-model src="#Mako" position="6 0 28" scale="2 2 2" rotation="0 -90 0"></a-gltf-model>
-    <a-gltf-model src="#PirateCaptain" position="0 0 28" scale="2 2 2" rotation="0 180 0"></a-gltf-model>
-    
-    <!-- Island Back Left -->
-    <a-gltf-model src="#LargeBone" position="-27 -0.4 10" scale="0.8 0.8 0.8" rotation="-7 8 6"></a-gltf-model>
-    <a-gltf-model src="#Skull" position="-24 0 6" scale="3 3 3" rotation="0 135 35"></a-gltf-model>
+
 
     <!-- Camera -->
     <a-entity camera look-controls wasd-controls position="0 2 10" rotation="0 180 0"></a-entity>
