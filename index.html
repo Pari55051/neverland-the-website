@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Neverland | Pirate Island</title>
@@ -7,11 +8,15 @@
   <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 
   <style>
-    body { margin: 0; overflow: hidden; }
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
   </style>
 </head>
+
 <body>
-  <a-scene background="color: #88c9f9">
+  <a-scene background="color: #88c9f9" cursor="rayOrigin: mouse" raycaster="objects: .clickable-character, .clickable-tentacle, .clickable-shark">
     <!-- ==================== DEFINING ASSETS ================== -->
     <a-assets>
       <!-- Characters -->
@@ -53,33 +58,34 @@
       <a-asset-item id="Skull" src="assets/Skull.glb"></a-asset-item>
       <a-asset-item id="Sawmill" src="assets/Sawmill.glb"></a-asset-item>
       <a-asset-item id="Bird" src="assets/Bird.glb"></a-asset-item>
-    
+
     </a-assets>
 
 
     <!-- ======================== PLANE POSITIONING ================  -->
     <!-- Ocean -->
-    <a-plane position="0 -0.1 -70" rotation="-90 0 0" width="500" height="500" material="color: #1ca3ec; opacity: 0.9; side: double;"></a-plane>
+    <a-plane position="0 -0.1 -70" rotation="-90 0 0" width="500" height="500"
+      material="color: #1ca3ec; opacity: 0.9; side: double;"></a-plane>
 
     <!-- Island Base -->
     <a-plane position="0 0 0" rotation="-90 0 0" width="120" height="120" material="color: #fad682;"></a-plane>
 
-    
+
     <!-- ========================= PROP POSITIONING ================= -->
     <!-- Sea -->
     <a-entity gltf-model="#Ship" position="0 0.5 -90" scale="4 4 4" rotation="0 180 0"></a-entity>
 
-    <a-entity gltf-model="#Tentacle" position="177 -1 -10" scale="3 3 3" rotation="0 30 0"
-    animation-mixer="clip: TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Idle|TentacleArmatur;"></a-entity>
-    <a-entity gltf-model="#Tentacle" position="180 -1 65" scale="2 2 2" rotation="0 -40 0"
-    animation-mixer="clip: TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Idle|TentacleArmatur;"></a-entity>
-    <a-entity gltf-model="#Tentacle" position="179 -1 35" scale="2.5 2.5 2.5" rotation="0 225 0"
-    animation-mixer="clip: TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Idle|TentacleArmatur;"></a-entity>
+    <a-entity gltf-model="#Tentacle" position="177 -1 -10" scale="3 3 3" rotation="0 30 0" class="clickable-tentacle"
+      animation-mixer="clip: TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Idle|TentacleArmatur;"></a-entity>
+    <a-entity gltf-model="#Tentacle" position="180 -1 65" scale="2 2 2" rotation="0 -40 0" class="clickable-tentacle"
+      animation-mixer="clip: TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Idle|TentacleArmatur;"></a-entity>
+    <a-entity gltf-model="#Tentacle" position="179 -1 35" scale="2.5 2.5 2.5" rotation="0 225 0" class="clickable-tentacle"
+      animation-mixer="clip: TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Idle|TentacleArmatur;"></a-entity>
 
-    <a-entity gltf-model="#Shark" position="-120 0 10 -45" scale="3 3 3" rotation="0 90 0"
-    animation-mixer="clip: SharkArmature|SharkArmature|SharkArmature|Swim_Fast|SharkArmature|Swim_Fast;"></a-entity>
-    <a-entity gltf-model="#Shark" position="240 -12 240" scale="3 3 3" rotation="0-60 0"
-    animation-mixer="clip: SharkArmature|SharkArmature|SharkArmature|Swim_Fast|SharkArmature|Swim_Fast;"></a-entity>
+    <a-entity gltf-model="#Shark" position="-120 0 10 -45" scale="3 3 3" rotation="0 90 0" class="clickable-shark"
+      animation-mixer="clip: SharkArmature|SharkArmature|SharkArmature|Swim|SharkArmature|Swim;"></a-entity>
+    <a-entity gltf-model="#Shark" position="240 -12 240" scale="3 3 3" rotation="0-60 0" class="clickable-shark"
+      animation-mixer="clip: SharkArmature|SharkArmature|SharkArmature|Swim|SharkArmature|Swim;"></a-entity>
 
 
     <!-- Island Front Right -->
@@ -96,7 +102,8 @@
     <a-entity gltf-model="#Bomb" position="16.25 0.35 -30.5" scale="3 3 3" rotation="-23 -105 -18"></a-entity>
 
     <a-entity gltf-model="#Anne" position="12 0 -35" scale="3.25 3.25 3.25" rotation="0 -195 0"
-    animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
+      class="clickable-character"
+      animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
 
     <a-entity gltf-model="#Palm2" position="46 0 -27" scale="5 5 5"></a-entity>
     <a-entity gltf-model="#Palm" position="52 0 -7" scale="3 3 3"></a-entity>
@@ -107,8 +114,8 @@
     <a-entity gltf-model="#Anchor" position="-55 0.5 -40" scale="5 6 5" rotation="35 20 0"></a-entity>
     <a-entity gltf-model="#SmallShip" position="-75 -1 -35" scale="3 3 3" rotation="0 65 0"></a-entity>
 
-    <a-entity gltf-model="#Sharky" position="-53 0 -22" scale="3 3 3" rotation="0 65 0"
-    animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
+    <a-entity gltf-model="#Sharky" position="-53 0 -22" scale="3 3 3" rotation="0 65 0" class="clickable-character"
+      animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
 
     <a-entity gltf-model="#Palm" position="-44 0 -2" scale="4 4 4"></a-entity>
     <a-entity gltf-model="#Palm2" position="-43 0 4" scale="3.5 3.5 3.5"></a-entity>
@@ -121,18 +128,19 @@
 
     <a-entity gltf-model="#Palm3" position="-28 0 -53" scale="5 5 5"></a-entity>
     <a-entity gltf-model="#Shop" position="-35 0 -38" scale="2.5 2.5 2.5" rotation="0 45 0"></a-entity>
-    <a-entity gltf-model="#Skeleton2" position="-22 0 -38" scale="4 4 4" rotation="0 50 0"
-    animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
+    <a-entity gltf-model="#Skeleton2" position="-22 0 -38" scale="4 4 4" rotation="0 50 0" class="clickable-character"
+      animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
 
 
     <!-- Island Center -->
-    <a-entity gltf-model="#PirateCaptain" position="-1 0 0" scale="2.8 2.8 2.8"
-    animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
+    <a-entity gltf-model="#PirateCaptain" position="-1 0 0" scale="2.8 2.8 2.8" class="clickable-character"
+      animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
 
     <a-entity gltf-model="#Skeleton" position="-8 0 12" scale="3.2 3.2 3.2" rotation="0 180 0"
-    animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
-    <a-entity gltf-model="#Henry" position="8 0 12" scale="3 3 3" rotation="0 180 0"
-    animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
+      class="clickable-character"
+      animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
+    <a-entity gltf-model="#Henry" position="8 0 12" scale="3 3 3" rotation="0 180 0" class="clickable-character"
+      animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
 
     <a-entity gltf-model="#Chest" position="15 -0.1 -3.5" scale="2.5 2.5 2.5" rotation="-15 135 12"></a-entity>
     <a-entity gltf-model="#Chest" position="-4 -0.1 -27" scale="2 2 2" rotation="10 45 7"></a-entity>
@@ -156,7 +164,7 @@
     <a-entity gltf-model="#Skeleton" position="15 0 26" scale="2 2 2" rotation="0 180 0"></a-entity>
     <a-entity gltf-model="#Anne" position="-16 0 20" scale="2 2 2" rotation="0 90 0"></a-entity>
     <a-entity gltf-model="#Mako" position="12 0 29" scale="2.5 2.5 2.5" rotation="0 -150 0"></a-entity>
-    <a-entity gltf-model="#PirateCaptain" position="0 0 28" scale="3.05 3.05 3.05"rotation="0 180 0"></a-entity>
+    <a-entity gltf-model="#PirateCaptain" position="0 0 28" scale="3.05 3.05 3.05" rotation="0 180 0"></a-entity>
 
 
     <!-- Island Back Left -->
@@ -168,8 +176,8 @@
     <a-entity gltf-model="#Palm" position="50 0 5" scale="5 5 5"></a-entity>
     <a-entity gltf-model="#Sawmill" position="40 0 -3" scale="5 5 5" rotation="0 180 0"></a-entity>
 
-    <a-entity gltf-model="#Mako" position="36 0 -10" scale="3.2 3.2 3.2" rotation="0 -85 0"
-    animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
+    <a-entity gltf-model="#Mako" position="36 0 -10" scale="3.2 3.2 3.2" rotation="0 -85 0" class="clickable-character"
+      animation-mixer="clip: CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle;"></a-entity>
 
 
     <!-- Rock Mountain Back -->
@@ -195,19 +203,138 @@
     <!-- ==================== LIGHTING ==================== -->
     <a-light type="ambient" intensity="0.75" color="#edfbff"></a-light>
 
-    <a-entity light="type: directional; intensity: 0.85; castShadow: false; color:#dedede;"
-              position="10 40 -20"
-              shadow-camera-left="-50"
-              shadow-camera-right="50"
-              shadow-camera-bottom="-50"
-              shadow-camera-top="50">
+    <a-entity light="type: directional; intensity: 0.85; castShadow: false; color:#dedede;" position="10 40 -20"
+      shadow-camera-left="-50" shadow-camera-right="50" shadow-camera-bottom="-50" shadow-camera-top="50">
     </a-entity>
 
 
     <!-- =================== SKY ========================= -->
     <a-sky color="#6fb6fc"></a-sky>
 
-  
+
   </a-scene>
+
+
+  <script>
+    // character on-click animations
+    AFRAME.registerComponent('trigger-animation-on-click-character', {
+      init: function () {
+        const death = "CharacterArmature|CharacterArmature|CharacterArmature|Death|CharacterArmature|Dea"
+        const sword = "CharacterArmature|CharacterArmature|CharacterArmature|Sword|CharacterArmature|Swo"
+        const hitReact = "CharacterArmature|CharacterArmature|CharacterArmature|HitReact|CharacterArmature|"
+        const punch = "CharacterArmature|CharacterArmature|CharacterArmature|Punch|CharacterArmature|Pun"
+        const duck = "CharacterArmature|CharacterArmature|CharacterArmature|Duck|CharacterArmature|Duck"
+
+
+        this.animations = [death, sword, hitReact, punch, duck]
+
+        this.el.addEventListener('click', () => {
+          const randomIndex = Math.floor(Math.random() * this.animations.length);
+          const selectedClip = this.animations[randomIndex];
+
+          this.el.setAttribute('animation-mixer', {
+            clip: selectedClip,
+            loop: 'once',
+            timeScale: 0.8
+          });
+
+
+          const fallDuration = 1000;
+          setTimeout(() => {
+            this.el.setAttribute('animation-mixer', {
+              clip: 'CharacterArmature|CharacterArmature|CharacterArmature|Idle|CharacterArmature|Idle',
+              loop: 'repeat',
+              timeScale: 1
+            });
+          }, fallDuration);
+        });
+      }
+    });
+
+
+    // window.addEventListener('DOMContentLoaded', () => {
+    //   document.querySelectorAll('.clickable-character').forEach((el) => {
+    //     el.setAttribute('trigger-animation-on-click-character', '');
+    //   });
+    // });
+
+
+    // tentacles on-click animations
+    AFRAME.registerComponent('trigger-animation-on-click-tentacle', {
+      init: function () {
+        const attack1 = "TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Attack|TentacleArmat"
+        const attack2 = "TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Attack2|TentacleArma"
+        const poke = "TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Poke|TentacleArmatur"
+
+
+        this.animations = [attack1, attack2, poke]
+
+        this.el.addEventListener('click', () => {
+          const randomIndex = Math.floor(Math.random() * this.animations.length);
+          const selectedClip = this.animations[randomIndex];
+
+          this.el.setAttribute('animation-mixer', {
+            clip: selectedClip,
+            loop: 'once',
+            timeScale: 0.6
+          });
+
+
+          const attackDuration = 3000;
+          setTimeout(() => {
+            this.el.setAttribute('animation-mixer', {
+              clip: 'TentacleArmature|TentacleArmature|TentacleArmature|Tentacle_Idle|TentacleArmatur',
+              loop: 'repeat',
+              timeScale: 1
+            });
+          }, attackDuration);
+        });
+      }
+    });
+
+
+    // shark on-click animations
+    AFRAME.registerComponent('trigger-animation-on-click-shark', {
+      init: function () {
+        const bite = "SharkArmature|SharkArmature|SharkArmature|Swim_Bite|SharkArmature|Swim_Bite"
+
+        this.el.addEventListener('click', () => {
+
+          this.el.setAttribute('animation-mixer', {
+            clip: bite,
+            loop: 'once',
+            timeScale: 0.8
+          });
+
+
+          const attackDuration = 1000;
+          setTimeout(() => {
+            this.el.setAttribute('animation-mixer', {
+              clip: 'SharkArmature|SharkArmature|SharkArmature|Swim|SharkArmature|Swim',
+              loop: 'repeat',
+              timeScale: 1
+            });
+          }, attackDuration);
+        });
+      }
+    });
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.clickable-character').forEach((el) => {
+        el.setAttribute('trigger-animation-on-click-character', '');
+      });
+
+      document.querySelectorAll('.clickable-tentacle').forEach((el) => {
+        el.setAttribute('trigger-animation-on-click-tentacle', '');
+      });
+
+      document.querySelectorAll('.clickable-shark').forEach((el) => {
+        el.setAttribute('trigger-animation-on-click-shark', '');
+      });
+    });
+  </script>
+
 </body>
+
 </html>
