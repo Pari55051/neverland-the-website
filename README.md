@@ -39,3 +39,4 @@ this is a 3D pirate island built with [A-Frame](https://aframe.io). it is quite 
 
 - Created by: [unowen](https://github.com/pari5501)
 
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
